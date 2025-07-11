@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
 <meta name="google-site-verification" content="QtsnZP-acof6tTL5ogitFQ9r5kPr6kuNEB4b0SjOHCM" />
   <meta charset="UTF-8">
@@ -7,155 +6,60 @@
   <meta name="description" content="Top Up BUSSID termurah dan terpercaya. Proses cepat dan aman. Cek harga dan cara pesan di sini.">
   <meta name="keywords" content="top up bussid murah, top up bussid, top up bussid termurah, top up bussid cepat">
   <title>Top up bussid murah</title>
+  <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js"></script>
   <style>
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
       background: #e6f2ff;
       color: #333;
-      padding-bottom: 80px; /* biar promo ga nutup konten */
+      padding-bottom: 80px;
     }
-
     header {
       background: #0077cc;
       color: #fff;
       padding: 30px 20px;
       text-align: center;
     }
-
-    header h1 {
-      margin: 0;
-      font-size: 32px;
-    }
-
-    header p {
-      margin-top: 5px;
-    }
-
-    main {
-      padding: 20px;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    section {
-      background: #fff;
-      margin-bottom: 25px;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    h2 {
-      color: #0077cc;
-      margin-top: 0;
-    }
-
-    ul, ol {
-      padding-left: 20px;
-    }
-
-    .btn {
-      display: inline-block;
-      background: #28a745;
-      color: #fff;
-      padding: 10px 16px;
-      text-decoration: none;
-      border-radius: 6px;
-      margin-top: 15px;
-    }
-
-    .btn:hover {
-      background: #218838;
-    }
-
-    footer {
-      background: #0077cc;
-      color: white;
-      text-align: center;
-      padding: 15px 10px;
-      font-size: 14px;
-    }
-
-    .harga li {
-      margin-bottom: 8px;
-    }
-
-    /* PROMO NGAMBANG */
-    .promo-banner {
-      position: fixed;
-      bottom: 20px;
-      left: 0;
-      width: 100%;
-      overflow: hidden;
-      z-index: 9999;
-      pointer-events: none;
-    }
-
-    .promo-text {
-      display: inline-block;
-      white-space: nowrap;
-      background: rgba(255, 0, 0, 0.9);
-      color: white;
-      padding: 10px 30px;
-      border-radius: 10px;
-      font-weight: bold;
-      box-shadow: 0 0 10px red;
-      animation: runningText 10s linear infinite;
-    }
-
+    header h1 { margin: 0; font-size: 32px; }
+    header p { margin-top: 5px; }
+    main { padding: 20px; max-width: 800px; margin: auto; }
+    section { background: #fff; margin-bottom: 25px; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    h2 { color: #0077cc; margin-top: 0; }
+    ul, ol { padding-left: 20px; }
+    .btn { display: inline-block; background: #28a745; color: #fff; padding: 10px 16px; text-decoration: none; border-radius: 6px; margin-top: 15px; }
+    .btn:hover { background: #218838; }
+    footer { background: #0077cc; color: white; text-align: center; padding: 15px 10px; font-size: 14px; }
+    .harga li { margin-bottom: 8px; }
+    .promo-banner { position: fixed; bottom: 20px; left: 0; width: 100%; overflow: hidden; z-index: 9999; pointer-events: none; }
+    .promo-text { display: inline-block; white-space: nowrap; background: rgba(255, 0, 0, 0.9); color: white; padding: 10px 30px; border-radius: 10px; font-weight: bold; box-shadow: 0 0 10px red; animation: runningText 10s linear infinite; }
     @keyframes runningText {
-      0% {
-        transform: translateX(100%);
-        opacity: 0;
-      }
-      10% {
-        opacity: 1;
-      }
-      90% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateX(-100%);
-        opacity: 0;
-      }
+      0% { transform: translateX(100%); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateX(-100%); opacity: 0; }
     }
   </style>
 </head>
 <body>
-
 <header>
   <h1>Top Up BUSSID</h1>
   <p>Top Up Cepat, Murah, Aman!</p>
 </header>
-
 <main>
-
   <section>
     <h2>Mau Duit Bussid Banyak, Tanpa Harus Cape cape narik?</h2>
     <p>Top Up BUSSID solusinya dengan kalian top up bussid duit kalian bisa bertambah dengan instan, dan kalian juga ga perlu narik secara manual. <strong>Ayo Top up Ub Sekarang</strong>.</p>
   </section>
-
   <section>
     <h2>🚌 Apa Itu Top Up BUSSID?</h2>
     <p>Top Up BUSSID adalah layanan pembelian uang, untuk membeli berbagai macam item di game tersebut tanpa harus ngumpulin duit secara manual di <strong>Bus Simulator Indonesia</strong>.</p>
   </section>
-
   <section>
     <h2>💸 Daftar Harga</h2>
-    <ul class="harga">
-      <li> 💵 70JT UB – Rp5.000</li>
-      <li>💵 200JT UB – Rp10.000</li>
-      <li>💵 250JT UB – Rp20.000</li>
-      <li>💵 300JT UB – Rp25.000</li>
-      <li>💵 500JT UB – Rp30.000</li>
-      <li>💵 700JT UB – Rp35.000</li>
-      <li>💵 900JT UB – Rp40.000</li>
-      <li>💵 1MIL UB – Rp45.000</li>
-      <li>💵 2 MIL UB – Rp50.000</li>
-    </ul>
+    <ul class="harga" id="daftar-harga"></ul>
   </section>
-
   <section>
     <h2>📦 Cara Pemesanan</h2>
     <ol>
@@ -166,44 +70,39 @@
     </ol>
     <a href="https://wa.me/6289520418604" class="btn">Pesan Sekarang</a>
   </section>
-
+  <section>
+    <h2>🌟 Promo Spesial</h2>
+    <div id="daftar-promo"></div>
+  </section>
   <section>
     <h2>🌟 Testimoni Pembeli</h2>
     <a href="https://whatsapp.com/channel/0029ValJCIE8KMqmgpnVTQ3o" class="btn" target="_blank">
       Lihat Testimoni Pembeli
     </a>
   </section>
-
 </main>
-
-<!-- PROMO JALAN -->
 <div class="promo-banner">
   <div class="promo-text">
     🎉 Ayo Top Up Sekarang Sebelum Menyesal 🎉
   </div>
 </div>
-
 <footer>
   &copy; 2025 Top Up BUSSID | All rights reserved
 </footer>
-
-<!-- SCRIPT SLIDER (kalau kamu punya gambar slider nanti) -->
 <script>
-  let posisi = 0;
-  function geserSlider(arah) {
-    const slider = document.getElementById('slider');
-    const gambar = slider.querySelectorAll('img');
-    const total = gambar.length;
-    const lebar = gambar[0].clientWidth + 10;
+  const firebaseConfig = {
+    apiKey: "AIzaSyBd2z5p0G93InmRC_RFEhV2WfcAqYE9V_k",
+    authDomain: "paneladmin-83c8a.firebaseapp.com",
+    projectId: "paneladmin-83c8a",
+    storageBucket: "paneladmin-83c8a.firebasestorage.app",
+    messagingSenderId: "343729471216",
+    appId: "1:343729471216:web:14c357375fa83083c44c35",
+    measurementId: "G-E2G04E4KB5"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();db.collection("harga").get().then((querySnapshot) => { querySnapshot.forEach((doc) => { const data = doc.data(); document.getElementById("daftar-harga").innerHTML += <li>💵 ${data.nama} – Rp${data.harga}</li>; }); });
 
-    posisi += arah;
-
-    if (posisi < 0) posisi = total - 1;
-    if (posisi >= total) posisi = 0;
-
-    slider.style.transform = `translateX(-${posisi * lebar}px)`;
-  }
-</script>
+db.collection("promo").get().then((querySnapshot) => { querySnapshot.forEach((doc) => { const data = doc.data(); document.getElementById("daftar-promo").innerHTML += <p><strong>${data.judul}</strong>: ${data.deskripsi}</p>; }); }); </script>
 
 </body>
 </html>
