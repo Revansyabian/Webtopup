@@ -33,8 +33,19 @@
     .btn:hover { background: #218838; }
     footer { background: #0077cc; color: white; text-align: center; padding: 15px 10px; font-size: 14px; }
     .harga li { margin-bottom: 8px; }
-    .promo-banner { position: fixed; bottom: 20px; left: 0; width: 100%; overflow: hidden; z-index: 9999; pointer-events: none; }
+    .promo-banner { position: fixed; bottom: 20px; left: 0; width: 100%; overflow: hidden; z-index: 9998; pointer-events: none; }
     .promo-text { display: inline-block; white-space: nowrap; background: rgba(255, 0, 0, 0.9); color: white; padding: 10px 30px; border-radius: 10px; font-weight: bold; box-shadow: 0 0 10px red; animation: runningText 10s linear infinite; }
+    #toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #333;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      display: none;
+      z-index: 9999;
+    }
     @keyframes runningText {
       0% { transform: translateX(100%); opacity: 0; }
       10% { opacity: 1; }
@@ -82,14 +93,21 @@
     </a>
   </section>
 </main>
+
+<!-- Promo running text -->
 <div class="promo-banner">
   <div class="promo-text">
     🎉 Ayo Top Up Sekarang Sebelum Menyesal 🎉
-  </div> id="toast" style="position: fixed; bottom: 20px; right: 20px; background: #333; color: white; padding: 10px 15px; border-radius: 5px; display: none; z-index: 999;"></
+  </div>
 </div>
+
+<!-- Notifikasi toast -->
+<div id="toast"></div>
+
 <footer>
   &copy; 2025 Top Up BUSSID | All rights reserved
 </footer>
+
 <script>
   const firebaseConfig = {
     apiKey: "AIzaSyBd2z5p0G93InmRC_RFEhV2WfcAqYE9V_k",
@@ -107,7 +125,7 @@
   // 🔄 Real-time daftar harga
   db.collection("harga").onSnapshot((querySnapshot) => {
     const hargaEl = document.getElementById("daftar-harga");
-    hargaEl.innerHTML = ""; // kosongkan dulu
+    hargaEl.innerHTML = "";
     if (querySnapshot.empty) {
       hargaEl.innerHTML = "<li>Belum ada data harga.</li>";
     } else {
@@ -117,14 +135,14 @@
       });
     }
   }, (error) => {
-    document.getElementById("daftar-harga").innerHTML = "<li>Gagal memuat harga.</li>";
-    console.error("Error mengambil harga:", error);
+    showToast("❌ Gagal memuat harga");
+    console.error("Error harga:", error);
   });
 
   // 🔄 Real-time promo spesial
   db.collection("promo").onSnapshot((querySnapshot) => {
     const promoEl = document.getElementById("daftar-promo");
-    promoEl.innerHTML = ""; // kosongkan dulu
+    promoEl.innerHTML = "";
     if (querySnapshot.empty) {
       promoEl.innerHTML = "<p>Tidak ada promo saat ini.</p>";
     } else {
@@ -134,9 +152,18 @@
       });
     }
   }, (error) => {
-    document.getElementById("daftar-promo").innerHTML = "<p>Gagal memuat promo.</p>";
-    console.error("Error mengambil promo:", error);
+    showToast("❌ Gagal memuat promo");
+    console.error("Error promo:", error);
   });
+
+  function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.innerText = message;
+    toast.style.display = "block";
+    setTimeout(() => {
+      toast.style.display = "none";
+    }, 3000);
+  }
 </script>
 </body>
 </html>
