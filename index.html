@@ -83,8 +83,35 @@
     <a href="https://wa.me/6289520418604" class="btn">Pesan Sekarang</a>
   </section>
   <section>
-    <h2>🌟 Promo Spesial</h2>
-    <div id="daftar-promo">Memuat promo...</div>
+    <<div id="promo-banner"></div>
+
+<style>
+#promo-banner {
+  background: #00c853;
+  color: white;
+  padding: 12px;
+  text-align: center;
+  font-weight: bold;
+  animation: fade 1s;
+}
+@keyframes fade {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+</style>
+
+<script>
+const promos = [
+  "🔥 Top up :  Mulai 5K!",
+  "🚀 Proses Cepat & Aman 24 Jam!"
+];
+
+let i = 0;
+setInterval(() => {
+  document.getElementById("promo-banner").innerText = promos[i];
+  i = (i + 1) % promos.length;
+}, 3000);
+</script>
   </section>
   <section>
     <h2>🌟 Testimoni Pembeli</h2>
@@ -99,8 +126,6 @@
   <div class="promo-text">
     🎉 Ayo Top Up Sekarang Sebelum Menyesal 🎉
   </div>
-</div>
-
 <!-- Notifikasi toast -->
 <div id="toast"></div>
 
