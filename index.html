@@ -177,9 +177,6 @@
     const db = getDatabase(app);
 
     const maintenanceRef = ref(db, "maintenance");
-    const promoRef = ref(db, "promo");
-
-    // Maintenance Check
     const statusText = document.getElementById("maintenanceStatus");
     const isAdmin = new URLSearchParams(window.location.search).get("admin") === "true";
 
@@ -202,25 +199,27 @@
       }
     };
 
-    // Promo Firebase
+    // PROMO FIXED VERSION
     const promoBar = document.getElementById("promo");
     const promoBanner = document.getElementById("promoBanner");
     const promoText = document.getElementById("promoText");
 
-    onValue(promoRef, (snapshot) => {
+    const rootRef = ref(db); // Ambil semua data dari root
+
+    onValue(rootRef, (snapshot) => {
       const data = snapshot.val();
-      if (data && data.aktif && data.teks) {
+      if (data.promoAktif && data.promo) {
         promoBar.style.display = "block";
         promoBanner.style.display = "block";
-        promoBar.textContent = data.teks;
-        promoText.textContent = data.teks;
+        promoBar.textContent = data.promo;
+        promoText.textContent = data.promo;
       } else {
         promoBar.style.display = "none";
         promoBanner.style.display = "none";
       }
     });
 
-    // Tampilkan panel admin kalau admin=true
+    // Tampilkan admin panel jika akses sebagai admin
     if (isAdmin) {
       document.getElementById("adminPanel").style.display = "block";
     }
